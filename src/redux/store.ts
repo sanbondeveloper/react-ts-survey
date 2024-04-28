@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import surveyReducer from './slices/surveySlice';
+import previewReducer from './slices/previewSlice';
 
 const store = configureStore({
   reducer: {
     survey: surveyReducer,
+    preview: previewReducer,
   },
 });
 
