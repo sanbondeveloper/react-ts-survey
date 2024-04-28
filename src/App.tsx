@@ -1,9 +1,11 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+import SurveyPage from './pages/survey';
+
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <div>설문지</div>,
+    element: <SurveyPage />,
   },
   {
     path: '/preview',
