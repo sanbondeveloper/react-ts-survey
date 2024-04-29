@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { DragDropContext, Draggable, DropResult } from 'react-beautiful-dnd';
-import { MdDragIndicator } from 'react-icons/md';
 
 import { Question, Questions } from './styles';
 import { SAVE_PER_MS } from '../../lib/constants';
@@ -44,10 +43,7 @@ function QuestionList() {
                     $draggingOverWith={droppableSnapShot.draggingOverWith}
                     {...provided.draggableProps}
                   >
-                    <div className="ico-drag-question" {...provided.dragHandleProps}>
-                      <MdDragIndicator />
-                    </div>
-                    <QuestionItem {...question} />
+                    <QuestionItem {...question} dragHandleProps={provided.dragHandleProps} />
                   </Question>
                 )}
               </Draggable>

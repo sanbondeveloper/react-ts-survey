@@ -1,4 +1,6 @@
 import Divider from '@mui/material/Divider';
+import { MdDragIndicator } from 'react-icons/md';
+import { DraggableProvidedDragHandleProps } from 'react-beautiful-dnd';
 
 import { Footer, Header } from './styles';
 import { QuestionType } from '../../types/question';
@@ -21,9 +23,10 @@ interface Props {
   options: QuestionType['options'];
   required: boolean;
   hasEtc: boolean;
+  dragHandleProps: DraggableProvidedDragHandleProps | null | undefined;
 }
 
-function QuestionItem({ id, title, type, options, required, hasEtc }: Props) {
+function QuestionItem({ id, title, type, options, required, hasEtc, dragHandleProps }: Props) {
   const isFocus = useAppSelector((state) => selectIsFocus(state, id));
   const dispatch = useAppDispatch();
 
@@ -33,7 +36,12 @@ function QuestionItem({ id, title, type, options, required, hasEtc }: Props) {
 
   return (
     <CardWrapper>
-      <div onClick={handleFocus}>
+      {isFocus && (
+        <div className="ico-drag-question" {...dragHandleProps}>
+          <MdDragIndicator />
+        </div>
+      )}
+      <div id={`question-${id}`} onClick={handleFocus}>
         {isFocus && <FocusMarker />}
         <Header>
           <QuestionTitle id={id} title={title} isFocus={isFocus} />

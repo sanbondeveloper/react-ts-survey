@@ -53,9 +53,11 @@ function OptionList({ id, type, options, isFocus, hasEtc }: Props) {
                       $draggingOverWith={droppableSnapShot.draggingOverWith}
                       {...provided.draggableProps}
                     >
-                      <div className="ico-drag-option" {...provided.dragHandleProps}>
-                        <MdDragIndicator />
-                      </div>
+                      {isFocus && (
+                        <div className="ico-drag-option" {...provided.dragHandleProps}>
+                          <MdDragIndicator />
+                        </div>
+                      )}
                       <OptionItem
                         id={id}
                         optionId={option.id}
