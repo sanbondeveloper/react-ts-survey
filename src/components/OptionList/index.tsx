@@ -55,14 +55,18 @@ function OptionList({ id, type, options, isFocus, hasEtc }: Props) {
       )}
 
       <Footer>
-        <OptionPrefix type={type} index={options.length} />
-        <TextField variant="standard" placeholder="옵션 추가" onClick={handleAddOption.bind(null, false)} />
-        {(type === 'RADIO' || type === 'CHECKBOX') && !hasEtc && (
+        {isFocus && (
           <>
-            <span>또는</span>
-            <Button variant="text" onClick={handleAddOption.bind(null, true)}>
-              '기타' 추가
-            </Button>
+            <OptionPrefix type={type} index={options.length} />
+            <TextField variant="standard" placeholder="옵션 추가" onClick={handleAddOption.bind(null, false)} />
+            {(type === 'RADIO' || type === 'CHECKBOX') && !hasEtc && (
+              <>
+                <span>또는</span>
+                <Button variant="text" onClick={handleAddOption.bind(null, true)}>
+                  '기타' 추가
+                </Button>
+              </>
+            )}
           </>
         )}
       </Footer>

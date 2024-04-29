@@ -37,7 +37,7 @@ function QuestionItem({ id, title, type, options, required, hasEtc }: Props) {
         {isFocus && <FocusMarker />}
         <Header>
           <QuestionTitle id={id} title={title} isFocus={isFocus} />
-          <QuestionTypeSelect id={id} type={type} />
+          {isFocus && <QuestionTypeSelect id={id} type={type} />}
         </Header>
         {type === 'SHORT' || type === 'LONG' ? (
           <TextDecoration
@@ -47,12 +47,14 @@ function QuestionItem({ id, title, type, options, required, hasEtc }: Props) {
         ) : (
           <OptionList id={id} type={type} options={options} isFocus={isFocus} hasEtc={hasEtc} />
         )}
-        <Footer>
-          <CopyQuestionButton copiedId={id} />
-          <RemoveQuestionButton removedId={id} />
-          <Divider orientation="vertical" flexItem />
-          <RequiredSwitch toggleId={id} required={required} />
-        </Footer>
+        {isFocus && (
+          <Footer>
+            <CopyQuestionButton copiedId={id} />
+            <RemoveQuestionButton removedId={id} />
+            <Divider orientation="vertical" flexItem />
+            <RequiredSwitch toggleId={id} required={required} />
+          </Footer>
+        )}
       </div>
     </CardWrapper>
   );
