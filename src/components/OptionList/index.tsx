@@ -2,7 +2,7 @@ import { DragDropContext, Draggable, DropResult } from 'react-beautiful-dnd';
 import { Button, TextField } from '@mui/material';
 import { MdDragIndicator } from 'react-icons/md';
 
-import { Container, Footer, Option } from './styles';
+import { Container, DragIconWrapper, Footer, Option } from './styles';
 import { QuestionType } from '../../types/question';
 import { useAppDispatch } from '../../redux/hooks';
 import { addOption, moveOption, toggleEtcOption } from '../../redux/slices/surveySlice';
@@ -53,11 +53,10 @@ function OptionList({ id, type, options, isFocus, hasEtc }: Props) {
                       $draggingOverWith={droppableSnapShot.draggingOverWith}
                       {...provided.draggableProps}
                     >
-                      {isFocus && (
-                        <div className="ico-drag-option" {...provided.dragHandleProps}>
-                          <MdDragIndicator />
-                        </div>
-                      )}
+                      <DragIconWrapper className="ico-drag-option" $isFocus={isFocus} {...provided.dragHandleProps}>
+                        <MdDragIndicator />
+                      </DragIconWrapper>
+
                       <OptionItem
                         id={id}
                         optionId={option.id}

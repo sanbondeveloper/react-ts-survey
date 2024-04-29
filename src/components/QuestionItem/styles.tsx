@@ -19,3 +19,7 @@ export const Footer = styled.div`
     cursor: pointer;
   }
 `;
+
+export const DragIconWrapper = styled.div<{ $isFocus: boolean }>`
+  display: ${(props) => (props.$isFocus ? 'block' : 'none')};
+`;

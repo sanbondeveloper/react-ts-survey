@@ -40,6 +40,10 @@ export const Option = styled.li<{ $isDragging: boolean; $draggingOverWith: strin
     `}
 `;
 
+export const DragIconWrapper = styled.div<{ $isFocus: boolean }>`
+  display: ${(props) => (props.$isFocus ? 'block' : 'none')};
+`;
+
 export const Footer = styled.div`
   display: flex;
   align-items: center;

@@ -2,7 +2,7 @@ import Divider from '@mui/material/Divider';
 import { MdDragIndicator } from 'react-icons/md';
 import { DraggableProvidedDragHandleProps } from 'react-beautiful-dnd';
 
-import { Footer, Header } from './styles';
+import { DragIconWrapper, Footer, Header } from './styles';
 import { QuestionType } from '../../types/question';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { selectIsFocus, updateFocus } from '../../redux/slices/surveySlice';
@@ -36,11 +36,10 @@ function QuestionItem({ id, title, type, options, required, hasEtc, dragHandlePr
 
   return (
     <CardWrapper>
-      {isFocus && (
-        <div className="ico-drag-question" {...dragHandleProps}>
-          <MdDragIndicator />
-        </div>
-      )}
+      <DragIconWrapper className="ico-drag-question" $isFocus={isFocus} {...dragHandleProps}>
+        <MdDragIndicator />
+      </DragIconWrapper>
+
       <div id={`question-${id}`} onClick={handleFocus}>
         {isFocus && <FocusMarker />}
         <Header>
