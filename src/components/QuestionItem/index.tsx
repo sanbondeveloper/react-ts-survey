@@ -18,9 +18,10 @@ interface Props {
   options: QuestionType['options'];
   required: boolean;
   isFocus: boolean;
+  hasEtc: boolean;
 }
 
-function QuestionItem({ id, title, type, options, required, isFocus }: Props) {
+function QuestionItem({ id, title, type, options, required, isFocus, hasEtc }: Props) {
   return (
     <CardWrapper>
       <Header>
@@ -33,7 +34,7 @@ function QuestionItem({ id, title, type, options, required, isFocus }: Props) {
           placeholder={`${type === 'SHORT' ? '단답형' : '장문형'} 텍스트`}
         />
       ) : (
-        <OptionList id={id} type={type} options={options} isFocus={isFocus} />
+        <OptionList id={id} type={type} options={options} isFocus={isFocus} hasEtc={hasEtc} />
       )}
       <Footer>
         <CopyQuestionButton copiedId={id} />

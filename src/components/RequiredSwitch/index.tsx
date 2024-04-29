@@ -17,9 +17,9 @@ function RequiredSwitch({ toggleId, required }: Props) {
   return (
     <FormControlLabel
       value="start"
-      control={<Switch color="primary" checked={required} onChange={handleChange} />}
       label="필수"
       labelPlacement="start"
+      control={<Switch color="primary" checked={required} onChange={handleChange} />}
     />
   );
 }

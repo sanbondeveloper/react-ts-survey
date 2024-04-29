@@ -35,6 +35,7 @@ export const surveySlice = createSlice({
         options: [{ id: 1, value: '옵션 1' }],
         required: false,
         isFocus: true,
+        hasEtc: false,
       });
     },
     copyQuestion: (state, action: PayloadAction<{ newId: number; copiedId: number }>) => {
@@ -68,7 +69,30 @@ export const surveySlice = createSlice({
       const { id, type } = action.payload;
       const question = state.questions.find((question) => question.id === id);
 
-      if (question) question.type = type;
+      if (!question) return;
+
+      question.type = type;
+
+      if (type !== 'RADIO' && type !== 'CHECKBOX') {
+        question.hasEtc = false;
+      }
+    },
+    addOption: (state, action: PayloadAction<{ id: number; newOptionId: number }>) => {
+      const { id, newOptionId } = action.payload;
+      const question = state.questions.find((question) => question.id === id);
+
+      if (question) {
+        const index = question.options.length;
+        question.options.push({ id: newOptionId, value: `옵션 ${index + 1}` });
+      }
+    },
+    toggleEtcOption: (state, action: PayloadAction<number>) => {
+      const id = action.payload;
+      const question = state.questions.find((question) => question.id === id);
+
+      if (question) {
+        question.hasEtc = !question.hasEtc;
+      }
     },
   },
 });
@@ -82,6 +106,8 @@ export const {
   toggleRequired,
   changeQuestionTitle,
   changeQuestionType,
+  addOption,
+  toggleEtcOption,
 } = surveySlice.actions;
 
 export const selectTitle = (state: RootState) => state.survey.title;

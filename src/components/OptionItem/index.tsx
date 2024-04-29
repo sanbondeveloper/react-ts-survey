@@ -8,14 +8,15 @@ interface Props {
   type: QuestionType['type'];
   value: string;
   isFocus: boolean;
-  index: number;
+  isEtc: boolean;
+  index?: number;
 }
 
-function OptionItem({ type, value, isFocus, index }: Props) {
+function OptionItem({ type, value, isFocus, isEtc, index }: Props) {
   return (
     <Wrapper>
       <OptionPrefix type={type} index={index} />
-      <OptionValue value={value} isFocus={isFocus} />
+      <OptionValue value={value} isFocus={isFocus} isEtc={isEtc} />
       <RemoveOptionButton />
     </Wrapper>
   );

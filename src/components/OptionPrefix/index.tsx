@@ -7,7 +7,7 @@ import { QuestionType } from '../../types/question';
 
 interface Props {
   type: QuestionType['type'];
-  index: number;
+  index?: number;
 }
 
 const OptionPrefix = React.memo(function OptionPrefix({ type, index }: Props) {
@@ -18,7 +18,7 @@ const OptionPrefix = React.memo(function OptionPrefix({ type, index }: Props) {
           return <MdRadioButtonUnchecked fontSize={25} />;
         } else if (type === 'CHECKBOX') {
           return <MdCheckBoxOutlineBlank fontSize={25} />;
-        } else {
+        } else if (type === 'DROPDOWN' && index !== undefined) {
           return `${index + 1}.`;
         }
       })()}
