@@ -1,11 +1,8 @@
-import { MdClear } from 'react-icons/md';
+import styled from 'styled-components';
 
-function RemoveOptionButton() {
-  return (
-    <button>
-      <MdClear />
-    </button>
-  );
-}
-
-export default RemoveOptionButton;
+export const Button = styled.button`
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+`;

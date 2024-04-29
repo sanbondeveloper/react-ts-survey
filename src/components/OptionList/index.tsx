@@ -18,8 +18,6 @@ interface Props {
 function OptionList({ id, type, options, isFocus, hasEtc }: Props) {
   const dispatch = useAppDispatch();
 
-  console.log(hasEtc);
-
   const handleAddOption = (isEtc: boolean) => {
     if (isEtc) {
       dispatch(toggleEtcOption(id));
@@ -31,18 +29,28 @@ function OptionList({ id, type, options, isFocus, hasEtc }: Props) {
     dispatch(addOption({ id, newOptionId }));
   };
 
+  const hasRemoveBtn = options.length > 1;
+
   return (
     <Container>
       <ul>
         {options.map((option, index) => (
           <li key={option.id}>
-            <OptionItem type={type} value={option.value} isFocus={isFocus} isEtc={false} index={index} />
+            <OptionItem
+              id={id}
+              optionId={option.id}
+              type={type}
+              value={option.value}
+              isFocus={isFocus}
+              hasRemoveBtn={hasRemoveBtn}
+              index={index}
+            />
           </li>
         ))}
       </ul>
       {hasEtc && (
         <div className="etc">
-          <OptionItem type={type} value={'기타...'} isFocus={isFocus} isEtc={true} />
+          <OptionItem id={id} optionId={-1} type={type} value={'기타...'} isFocus={isFocus} hasRemoveBtn={true} />
         </div>
       )}
 

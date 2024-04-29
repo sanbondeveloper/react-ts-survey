@@ -2,22 +2,24 @@ import { Wrapper } from './styles';
 import { QuestionType } from '../../types/question';
 import OptionPrefix from '../OptionPrefix';
 import OptionValue from '../OptionValue';
-import RemoveOptionButton from '../RemoveOptionButton/styles';
+import RemoveOptionButton from '../RemoveOptionButton';
 
 interface Props {
+  id: number;
+  optionId: number;
   type: QuestionType['type'];
   value: string;
   isFocus: boolean;
-  isEtc: boolean;
+  hasRemoveBtn: boolean;
   index?: number;
 }
 
-function OptionItem({ type, value, isFocus, isEtc, index }: Props) {
+function OptionItem({ id, optionId, type, value, isFocus, hasRemoveBtn, index }: Props) {
   return (
     <Wrapper>
       <OptionPrefix type={type} index={index} />
-      <OptionValue value={value} isFocus={isFocus} isEtc={isEtc} />
-      <RemoveOptionButton />
+      <OptionValue id={id} optionId={optionId} value={value} isFocus={isFocus} />
+      {hasRemoveBtn && <RemoveOptionButton id={id} optionId={optionId} />}
     </Wrapper>
   );
 }

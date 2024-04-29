@@ -1,12 +1,13 @@
 import { Container, InputValue } from './styles';
 
 interface Props {
+  id: number;
+  optionId: number;
   value: string;
   isFocus: boolean;
-  isEtc: boolean;
 }
 
-function OptionValue({ value, isEtc, isFocus }: Props) {
+function OptionValue({ id, optionId, value, isFocus }: Props) {
   const handleChange = () => {};
 
   return (
@@ -14,7 +15,7 @@ function OptionValue({ value, isEtc, isFocus }: Props) {
       <InputValue
         fullWidth
         variant="standard"
-        disabled={isEtc}
+        disabled={optionId === -1}
         $isfocus={isFocus}
         value={value}
         onChange={handleChange}
