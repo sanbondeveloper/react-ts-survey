@@ -8,8 +8,6 @@ interface Props {
 function OptionValue({ value, isFocus }: Props) {
   const handleChange = () => {};
 
-  console.log(isFocus);
-
   return (
     <Container>
       <InputValue fullWidth variant="standard" $isfocus={isFocus} value={value} onChange={handleChange} />

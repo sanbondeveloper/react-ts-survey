@@ -36,10 +36,10 @@ function QuestionItem({ id, title, type, options, required, isFocus }: Props) {
         <OptionList id={id} type={type} options={options} isFocus={isFocus} />
       )}
       <Footer>
-        <CopyQuestionButton />
-        <RemoveQuestionButton />
+        <CopyQuestionButton copiedId={id} />
+        <RemoveQuestionButton removedId={id} />
         <Divider orientation="vertical" flexItem />
-        <RequiredSwitch required={required} />
+        <RequiredSwitch toggleId={id} required={required} />
       </Footer>
     </CardWrapper>
   );

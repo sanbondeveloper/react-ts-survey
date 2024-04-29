@@ -1,13 +1,9 @@
 import styled from 'styled-components';
-import MenuItem from '@mui/material/MenuItem';
-
-export const MenuItemWithPadding = styled(MenuItem)`
-  padding: 15px 10px;
-`;
 
 export const OptionWrapper = styled.div`
   display: flex;
   align-items: center;
+  padding: 5px;
 `;
 
 export const OptionText = styled.p`

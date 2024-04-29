@@ -6,7 +6,7 @@ function FloatingButtons() {
   const dispatch = useAppDispatch();
 
   const handleAddQuestion = () => {
-    const newId = Math.max(...questionIds, 0);
+    const newId = Math.max(...questionIds, 0) + 1;
 
     dispatch(addQuestion(newId));
   };

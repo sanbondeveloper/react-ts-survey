@@ -4,14 +4,14 @@ import { MdSubject } from 'react-icons/md';
 import { MdRadioButtonChecked } from 'react-icons/md';
 import { MdOutlineCheckBox } from 'react-icons/md';
 import { MdOutlineExpandCircleDown } from 'react-icons/md';
-import { Divider, Select, SelectChangeEvent } from '@mui/material';
+import { Divider, Select, SelectChangeEvent, MenuItem } from '@mui/material';
 
-import { MenuItemWithPadding, OptionText, OptionWrapper } from './styles';
+import { OptionText, OptionWrapper } from './styles';
 import { QuestionType } from '../../types/question';
 import { useAppDispatch } from '../../redux/hooks';
 import { changeQuestionType } from '../../redux/slices/surveySlice';
 
-const options = [
+const options: { label: string; value: QuestionType['type']; icon: React.ReactNode }[] = [
   { label: '단답형', value: 'SHORT', icon: <MdShortText fontSize={25} /> },
   { label: '장문형', value: 'LONG', icon: <MdSubject fontSize={25} /> },
   { label: '객관식 질문', value: 'RADIO', icon: <MdRadioButtonChecked fontSize={25} /> },
@@ -67,21 +67,21 @@ function QuestionTypeSelect({ id, type }: Props) {
       onChange={handleChange}
     >
       {options.slice(0, 2).map((option) => (
-        <MenuItemWithPadding key={option.value} value={option.value}>
+        <MenuItem key={option.value} value={option.value}>
           <OptionWrapper>
             {option.icon}
             <OptionText>{option.label}</OptionText>
           </OptionWrapper>
-        </MenuItemWithPadding>
+        </MenuItem>
       ))}
       <Divider />
       {options.slice(2).map((option) => (
-        <MenuItemWithPadding key={option.value} value={option.value}>
+        <MenuItem key={option.value} value={option.value}>
           <OptionWrapper>
             {option.icon}
             <OptionText>{option.label}</OptionText>
           </OptionWrapper>
-        </MenuItemWithPadding>
+        </MenuItem>
       ))}
     </Select>
   );

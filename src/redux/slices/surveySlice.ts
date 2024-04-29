@@ -37,6 +37,27 @@ export const surveySlice = createSlice({
         isFocus: true,
       });
     },
+    copyQuestion: (state, action: PayloadAction<{ newId: number; copiedId: number }>) => {
+      const { newId, copiedId } = action.payload;
+      const index = state.questions.findIndex((question) => question.id === copiedId);
+      const copiedQuestion = state.questions[index];
+
+      state.questions.splice(index + 1, 0, { ...copiedQuestion, id: newId });
+    },
+    removeQuestion: (state, action: PayloadAction<number>) => {
+      const id = action.payload;
+      const newQuestions = state.questions.filter((question) => question.id !== id);
+
+      state.questions = newQuestions;
+    },
+    toggleRequired: (state, action: PayloadAction<number>) => {
+      const id = action.payload;
+      const question = state.questions.find((question) => question.id === id);
+
+      if (question) {
+        question.required = !question.required;
+      }
+    },
     changeQuestionTitle: (state, action: PayloadAction<{ id: number; title: string }>) => {
       const { id, title } = action.payload;
       const question = state.questions.find((question) => question.id === id);
@@ -52,8 +73,16 @@ export const surveySlice = createSlice({
   },
 });
 
-export const { changeTitle, changeDescription, addQuestion, changeQuestionTitle, changeQuestionType } =
-  surveySlice.actions;
+export const {
+  changeTitle,
+  changeDescription,
+  addQuestion,
+  copyQuestion,
+  removeQuestion,
+  toggleRequired,
+  changeQuestionTitle,
+  changeQuestionType,
+} = surveySlice.actions;
 
 export const selectTitle = (state: RootState) => state.survey.title;
 
