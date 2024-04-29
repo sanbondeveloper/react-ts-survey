@@ -1,7 +1,9 @@
+import { useEffect } from 'react';
 import { DragDropContext, Draggable, DropResult } from 'react-beautiful-dnd';
 import { MdDragIndicator } from 'react-icons/md';
 
 import { Question, Questions } from './styles';
+import { SAVE_PER_MS } from '../../lib/constants';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { selectQuestions, moveQuestion } from '../../redux/slices/surveySlice';
 import QuestionItem from '../QuestionItem';
@@ -10,6 +12,16 @@ import StrictModeDroppable from '../StrictModeDroppable';
 function QuestionList() {
   const questions = useAppSelector(selectQuestions);
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      localStorage.setItem('questions', JSON.stringify(questions));
+    }, SAVE_PER_MS);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, [questions]);
 
   const onDragEnd = (result: DropResult) => {
     if (!result.destination) return;

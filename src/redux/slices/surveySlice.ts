@@ -138,6 +138,9 @@ export const surveySlice = createSlice({
         question.options = newOptions;
       }
     },
+    initQuestions: (state, action: PayloadAction<QuestionType[]>) => {
+      state.questions = action.payload;
+    },
   },
 });
 
@@ -157,6 +160,7 @@ export const {
   updateFocus,
   moveQuestion,
   moveOption,
+  initQuestions,
 } = surveySlice.actions;
 
 export const selectTitle = (state: RootState) => state.survey.title;

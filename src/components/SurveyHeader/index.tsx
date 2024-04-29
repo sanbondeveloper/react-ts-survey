@@ -1,5 +1,8 @@
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { useEffect } from 'react';
+
 import { InputTitle, InputDescription } from './styles';
+import { SAVE_PER_MS } from '../../lib/constants';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import {
   changeDescription,
   changeTitle,
@@ -16,6 +19,17 @@ function SurveyHeader() {
   const description = useAppSelector(selectDesc);
   const isFocus = useAppSelector((state) => selectIsFocus(state, -1));
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      localStorage.setItem('title', title);
+      localStorage.setItem('desc', description);
+    }, SAVE_PER_MS);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, [title, description]);
 
   const handleChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(changeTitle(e.target.value));
