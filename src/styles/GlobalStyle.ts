@@ -60,6 +60,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   main {
+    position: relative;
     max-width: 800px;
     margin: 0 auto;
     margin-top: 20px;

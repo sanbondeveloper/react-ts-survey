@@ -45,7 +45,7 @@ function SurveyHeader() {
 
   return (
     <CardWrapper>
-      <div onClick={handleFocus}>
+      <div id={`question-${-1}`} onClick={handleFocus}>
         {isFocus && <FocusMarker />}
         <InputTitle
           fullWidth
