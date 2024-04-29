@@ -1,11 +1,14 @@
+import { DragDropContext, Draggable, DropResult } from 'react-beautiful-dnd';
 import { Button, TextField } from '@mui/material';
+import { MdDragIndicator } from 'react-icons/md';
 
-import { Container, Footer } from './styles';
+import { Container, Footer, Option } from './styles';
 import { QuestionType } from '../../types/question';
-import OptionItem from '../OptionItem';
-import OptionPrefix from '../OptionPrefix';
 import { useAppDispatch } from '../../redux/hooks';
-import { addOption, toggleEtcOption } from '../../redux/slices/surveySlice';
+import { addOption, moveOption, toggleEtcOption } from '../../redux/slices/surveySlice';
+import OptionPrefix from '../OptionPrefix';
+import OptionItem from '../OptionItem';
+import StrictModeDroppable from '../StrictModeDroppable';
 
 interface Props {
   id: number;
@@ -29,25 +32,48 @@ function OptionList({ id, type, options, isFocus, hasEtc }: Props) {
     dispatch(addOption({ id, newOptionId }));
   };
 
-  const hasRemoveBtn = options.length > 1;
+  const onDragEnd = (result: DropResult) => {
+    if (!result.destination) return;
+
+    dispatch(moveOption({ id, srcIdx: result.source.index, dstIdx: result.destination.index }));
+  };
 
   return (
     <Container>
-      <ul>
-        {options.map((option, index) => (
-          <li key={option.id}>
-            <OptionItem
-              id={id}
-              optionId={option.id}
-              type={type}
-              value={option.value}
-              isFocus={isFocus}
-              hasRemoveBtn={hasRemoveBtn}
-              index={index}
-            />
-          </li>
-        ))}
-      </ul>
+      <DragDropContext onDragEnd={onDragEnd}>
+        <StrictModeDroppable droppableId="droppableId" key="droppableId">
+          {(provided, droppableSnapShot) => (
+            <ul ref={provided.innerRef} {...provided.droppableProps}>
+              {options.map((option, index) => (
+                <Draggable key={option.id} draggableId={option.id.toString()} index={index}>
+                  {(provided, snapshot) => (
+                    <Option
+                      ref={provided.innerRef}
+                      $isDragging={snapshot.isDragging}
+                      $draggingOverWith={droppableSnapShot.draggingOverWith}
+                      {...provided.draggableProps}
+                    >
+                      <div className="ico-drag-option" {...provided.dragHandleProps}>
+                        <MdDragIndicator />
+                      </div>
+                      <OptionItem
+                        id={id}
+                        optionId={option.id}
+                        type={type}
+                        value={option.value}
+                        isFocus={isFocus}
+                        hasRemoveBtn={options.length > 1}
+                        index={index}
+                      />
+                    </Option>
+                  )}
+                </Draggable>
+              ))}
+              {provided.placeholder}
+            </ul>
+          )}
+        </StrictModeDroppable>
+      </DragDropContext>
       {hasEtc && (
         <div className="etc">
           <OptionItem id={id} optionId={-1} type={type} value={'기타...'} isFocus={isFocus} hasRemoveBtn={true} />

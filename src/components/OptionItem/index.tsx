@@ -19,7 +19,7 @@ function OptionItem({ id, optionId, type, value, isFocus, hasRemoveBtn, index }:
     <Wrapper>
       <OptionPrefix type={type} index={index} />
       <OptionValue id={id} optionId={optionId} value={value} isFocus={isFocus} />
-      {hasRemoveBtn && <RemoveOptionButton id={id} optionId={optionId} />}
+      {hasRemoveBtn && isFocus && <RemoveOptionButton id={id} optionId={optionId} />}
     </Wrapper>
   );
 }

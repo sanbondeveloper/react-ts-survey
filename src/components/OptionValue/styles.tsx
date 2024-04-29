@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import TextField from '@mui/material/TextField';
 
 export const Container = styled.div`
@@ -13,4 +13,13 @@ export const InputValue = styled(TextField)<{ $isfocus: boolean }>`
   .MuiInputBase-root:hover:before {
     border-bottom: ${(props) => (props.$isfocus ? '1px solid rgba(0, 0, 0, 0.42)' : 'none')} !important;
   }
+
+  ${(props) =>
+    !props.$isfocus &&
+    css`
+      .Mui-disabled:before {
+        border-bottom: none !important;
+        border-bottom-style: none !important;
+      }
+    `}
 `;

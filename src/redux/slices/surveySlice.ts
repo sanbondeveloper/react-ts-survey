@@ -116,6 +116,28 @@ export const surveySlice = createSlice({
     updateFocus: (state, action: PayloadAction<number>) => {
       state.focusId = action.payload;
     },
+    moveQuestion: (state, action: PayloadAction<{ srcIdx: number; dstIdx: number }>) => {
+      const { srcIdx, dstIdx } = action.payload;
+      const newQuestions = [...state.questions];
+      const srcQuestion = newQuestions.splice(srcIdx, 1)[0];
+
+      newQuestions.splice(dstIdx, 0, srcQuestion);
+
+      state.questions = newQuestions;
+    },
+    moveOption: (state, action: PayloadAction<{ id: number; srcIdx: number; dstIdx: number }>) => {
+      const { id, srcIdx, dstIdx } = action.payload;
+      const question = state.questions.find((question) => question.id === id);
+
+      if (question) {
+        const newOptions = [...question.options];
+        const srcOption = newOptions.splice(srcIdx, 1)[0];
+
+        newOptions.splice(dstIdx, 0, srcOption);
+
+        question.options = newOptions;
+      }
+    },
   },
 });
 
@@ -133,6 +155,8 @@ export const {
   removeOption,
   changeOptionValue,
   updateFocus,
+  moveQuestion,
+  moveOption,
 } = surveySlice.actions;
 
 export const selectTitle = (state: RootState) => state.survey.title;
@@ -149,8 +173,8 @@ export const selectFocusId = (state: RootState) => state.survey.focusId;
 
 export const selectIsFocus = createSelector(
   selectFocusId,
-  (state, questionId) => questionId,
-  (focusId, questionId) => focusId === questionId,
+  (_, questionId: number) => questionId,
+  (focusId: number, questionId: number) => focusId === questionId,
 );
 
 export default surveySlice.reducer;

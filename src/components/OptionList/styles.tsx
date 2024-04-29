@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   li + li {
@@ -8,6 +8,36 @@ export const Container = styled.div`
   .etc {
     margin-top: 10px;
   }
+`;
+
+export const Option = styled.li<{ $isDragging: boolean; $draggingOverWith: string | null | undefined }>`
+  position: relative;
+
+  .ico-drag-option {
+    display: none;
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    z-index: 10;
+  }
+
+  ${(props) =>
+    !props.$draggingOverWith &&
+    css`
+      &:hover .ico-drag-option {
+        display: block;
+      }
+    `}
+
+  ${(props) =>
+    props.$isDragging &&
+    css`
+      .ico-drag-option {
+        display: block;
+      }
+    `}
 `;
 
 export const Footer = styled.div`
