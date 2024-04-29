@@ -104,6 +104,14 @@ export const surveySlice = createSlice({
         question.options = newOptions;
       }
     },
+    changeOptionValue: (state, action: PayloadAction<{ id: number; optionId: number; value: string }>) => {
+      const { id, optionId, value } = action.payload;
+      const question = state.questions.find((question) => question.id === id);
+
+      if (!question) return;
+
+      question.options = question.options.map((option) => (option.id === optionId ? { ...option, value } : option));
+    },
   },
 });
 
@@ -119,6 +127,7 @@ export const {
   addOption,
   toggleEtcOption,
   removeOption,
+  changeOptionValue,
 } = surveySlice.actions;
 
 export const selectTitle = (state: RootState) => state.survey.title;

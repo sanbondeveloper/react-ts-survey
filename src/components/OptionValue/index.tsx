@@ -1,4 +1,6 @@
 import { Container, InputValue } from './styles';
+import { useAppDispatch } from '../../redux/hooks';
+import { changeOptionValue } from '../../redux/slices/surveySlice';
 
 interface Props {
   id: number;
@@ -8,7 +10,13 @@ interface Props {
 }
 
 function OptionValue({ id, optionId, value, isFocus }: Props) {
-  const handleChange = () => {};
+  const dispatch = useAppDispatch();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+
+    dispatch(changeOptionValue({ id, optionId, value }));
+  };
 
   return (
     <Container>
