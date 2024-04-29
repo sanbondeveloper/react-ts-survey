@@ -4,6 +4,5 @@ export interface QuestionType {
   type: 'SHORT' | 'LONG' | 'RADIO' | 'CHECKBOX' | 'DROPDOWN';
   options: { id: number; value: string }[];
   required: boolean;
-  isFocus: boolean;
   hasEtc: boolean;
 }

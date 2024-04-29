@@ -7,12 +7,14 @@ export interface SurveyState {
   title: string;
   description: string;
   questions: QuestionType[];
+  focusId: number;
 }
 
 const initialState: SurveyState = {
   title: '',
   description: '',
   questions: [],
+  focusId: -1,
 };
 
 export const surveySlice = createSlice({
@@ -34,7 +36,6 @@ export const surveySlice = createSlice({
         type: 'SHORT',
         options: [{ id: 1, value: '옵션 1' }],
         required: false,
-        isFocus: true,
         hasEtc: false,
       });
     },
@@ -112,6 +113,9 @@ export const surveySlice = createSlice({
 
       question.options = question.options.map((option) => (option.id === optionId ? { ...option, value } : option));
     },
+    updateFocus: (state, action: PayloadAction<number>) => {
+      state.focusId = action.payload;
+    },
   },
 });
 
@@ -128,6 +132,7 @@ export const {
   toggleEtcOption,
   removeOption,
   changeOptionValue,
+  updateFocus,
 } = surveySlice.actions;
 
 export const selectTitle = (state: RootState) => state.survey.title;
@@ -138,6 +143,14 @@ export const selectQuestions = (state: RootState) => state.survey.questions;
 
 export const selectQuestionIds = createSelector(selectQuestions, (questions) =>
   questions.map((question) => question.id),
+);
+
+export const selectFocusId = (state: RootState) => state.survey.focusId;
+
+export const selectIsFocus = createSelector(
+  selectFocusId,
+  (state, questionId) => questionId,
+  (focusId, questionId) => focusId === questionId,
 );
 
 export default surveySlice.reducer;
