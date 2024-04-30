@@ -1,4 +1,5 @@
 import { useLayoutEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { MdAdd } from 'react-icons/md';
 import { MdOutlineRemoveRedEye } from 'react-icons/md';
 
@@ -11,6 +12,7 @@ function FloatingButtons() {
   const focusId = useAppSelector(selectFocusId);
   const dispatch = useAppDispatch();
   const buttonRef = useRef<HTMLDivElement | null>(null);
+  const navigate = useNavigate();
 
   useLayoutEffect(() => {
     const focusEl = document.getElementById(`question-${focusId}`);
@@ -30,12 +32,16 @@ function FloatingButtons() {
     dispatch(updateFocus(newId));
   };
 
+  const handleGoToPreview = () => {
+    navigate('/preview');
+  };
+
   return (
     <Wrapper ref={buttonRef}>
       <button onClick={handleAddQuestion}>
         <MdAdd />
       </button>
-      <button>
+      <button onClick={handleGoToPreview}>
         <MdOutlineRemoveRedEye />
       </button>
     </Wrapper>

@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { useAppDispatch } from './redux/hooks';
 import { changeDescription, changeTitle, initQuestions } from './redux/slices/surveySlice';
 import SurveyPage from './pages/survey';
+import PreviewPage from './pages/preview';
 
 const router = createBrowserRouter([
   {
@@ -12,7 +13,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/preview',
-    element: <div>미리보기</div>,
+    element: <PreviewPage />,
   },
   {
     path: '/result',

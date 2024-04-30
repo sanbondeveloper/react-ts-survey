@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 export const Questions = styled.ul`
-  padding-bottom: 20px;
+  padding-bottom: 300px;
 `;
 
 export const Question = styled.li<{ $isDragging: boolean; $draggingOverWith: string | null | undefined }>`
