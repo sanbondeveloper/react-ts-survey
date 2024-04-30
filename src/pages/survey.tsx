@@ -1,6 +1,6 @@
 import SurveyHeader from '../components/SurveyHeader';
 import QuestionList from '../components/QuestionList';
-import FloatingButtons from '../components/FloattingButtons';
+import FloatingButtons from '../components/FloatingButtons';
 
 function SurveyPage() {
   return (
