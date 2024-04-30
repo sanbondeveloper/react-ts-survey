@@ -31,10 +31,13 @@ export const previewSlice = createSlice({
     setErrorId: (state, action: PayloadAction<number>) => {
       state.errorId = action.payload;
     },
+    clearAnswers: (state) => {
+      state.answers = {};
+    },
   },
 });
 
-export const { changeAnswer, setErrorId } = previewSlice.actions;
+export const { changeAnswer, setErrorId, clearAnswers } = previewSlice.actions;
 
 export const selectAnswers = (state: RootState) => state.preview.answers;
 

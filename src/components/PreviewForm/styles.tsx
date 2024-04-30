@@ -12,6 +12,9 @@ export const Form = styled.form`
 
 export const Footer = styled.div`
   margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   .btn-submit {
     border: none;
@@ -22,5 +25,13 @@ export const Footer = styled.div`
     border-radius: 5px;
     padding: 10px 15px;
     cursor: pointer;
+  }
+
+  .btn-clear {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: blue;
   }
 `;

@@ -1,7 +1,7 @@
 import { Footer, Form } from './styles';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { selectQuestions } from '../../redux/slices/surveySlice';
-import { selectAnswers, setErrorId } from '../../redux/slices/previewSlice';
+import { clearAnswers, selectAnswers, setErrorId } from '../../redux/slices/previewSlice';
 import PreviewField from '../PreviewField';
 
 function PreviewForm() {
@@ -22,7 +22,7 @@ function PreviewForm() {
 
         questionEl?.scrollIntoView({
           behavior: 'smooth',
-          block: 'start',
+          block: 'end',
         });
 
         dispatch(setErrorId(question.id));
@@ -42,6 +42,10 @@ function PreviewForm() {
     console.log(result);
   };
 
+  const handleClearAnswers = () => {
+    dispatch(clearAnswers());
+  };
+
   return (
     <Form onSubmit={handleSubmit}>
       <ul>
@@ -55,6 +59,9 @@ function PreviewForm() {
       <Footer>
         <button type="submit" className="btn-submit">
           제출하기
+        </button>
+        <button type="button" className="btn-clear" onClick={handleClearAnswers}>
+          양식 지우기
         </button>
       </Footer>
     </Form>
