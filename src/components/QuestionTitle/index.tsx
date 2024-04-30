@@ -1,3 +1,4 @@
+import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import { InputQuestionTitle } from './styles';
@@ -9,7 +10,7 @@ interface Props {
   isFocus: boolean;
 }
 
-function QuestionTitle({ id, title, isFocus }: Props) {
+const QuestionTitle = React.memo(function QuestionTitle({ id, title, isFocus }: Props) {
   const dispatch = useDispatch();
 
   const handleChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,6 +27,6 @@ function QuestionTitle({ id, title, isFocus }: Props) {
       onChange={handleChangeTitle}
     />
   );
-}
+});
 
 export default QuestionTitle;

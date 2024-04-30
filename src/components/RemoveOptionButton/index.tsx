@@ -1,3 +1,4 @@
+import React from 'react';
 import { MdClear } from 'react-icons/md';
 
 import { Button } from './styles';
@@ -9,7 +10,7 @@ interface Props {
   optionId: number;
 }
 
-function RemoveOptionButton({ id, optionId }: Props) {
+const RemoveOptionButton = React.memo(function RemoveOptionButton({ id, optionId }: Props) {
   const dispatch = useAppDispatch();
 
   const handleClick = () => {
@@ -26,6 +27,6 @@ function RemoveOptionButton({ id, optionId }: Props) {
       <MdClear fontSize={20} />
     </Button>
   );
-}
+});
 
 export default RemoveOptionButton;

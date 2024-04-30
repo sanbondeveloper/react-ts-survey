@@ -1,3 +1,4 @@
+import React from 'react';
 import { Container, InputValue } from './styles';
 import { useAppDispatch } from '../../redux/hooks';
 import { changeOptionValue } from '../../redux/slices/surveySlice';
@@ -9,7 +10,7 @@ interface Props {
   isFocus: boolean;
 }
 
-function OptionValue({ id, optionId, value, isFocus }: Props) {
+const OptionValue = React.memo(function OptionValue({ id, optionId, value, isFocus }: Props) {
   const dispatch = useAppDispatch();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,6 +31,6 @@ function OptionValue({ id, optionId, value, isFocus }: Props) {
       />
     </Container>
   );
-}
+});
 
 export default OptionValue;

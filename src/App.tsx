@@ -15,10 +15,6 @@ const router = createBrowserRouter([
     path: '/preview',
     element: <PreviewPage />,
   },
-  {
-    path: '/result',
-    element: <div>결과</div>,
-  },
 ]);
 
 function App() {

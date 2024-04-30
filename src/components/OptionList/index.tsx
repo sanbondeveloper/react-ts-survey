@@ -1,3 +1,4 @@
+import React from 'react';
 import { DragDropContext, Draggable, DropResult } from 'react-beautiful-dnd';
 import { Button, TextField } from '@mui/material';
 import { MdDragIndicator } from 'react-icons/md';
@@ -18,7 +19,7 @@ interface Props {
   hasEtc: boolean;
 }
 
-function OptionList({ id, type, options, isFocus, hasEtc }: Props) {
+const OptionList = React.memo(function OptionList({ id, type, options, isFocus, hasEtc }: Props) {
   const dispatch = useAppDispatch();
 
   const handleAddOption = (isEtc: boolean) => {
@@ -99,6 +100,6 @@ function OptionList({ id, type, options, isFocus, hasEtc }: Props) {
       </Footer>
     </Container>
   );
-}
+});
 
 export default OptionList;

@@ -1,3 +1,4 @@
+import React from 'react';
 import { RiDeleteBin5Line } from 'react-icons/ri';
 
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
@@ -7,7 +8,7 @@ interface Props {
   removedId: number;
 }
 
-function RemoveQuestionButton({ removedId }: Props) {
+const RemoveQuestionButton = React.memo(function RemoveQuestionButton({ removedId }: Props) {
   const questionIds = useAppSelector(selectQuestionIds);
   const dispatch = useAppDispatch();
 
@@ -27,6 +28,6 @@ function RemoveQuestionButton({ removedId }: Props) {
       <RiDeleteBin5Line fontSize={20} />
     </button>
   );
-}
+});
 
 export default RemoveQuestionButton;

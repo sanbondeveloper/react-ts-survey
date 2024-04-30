@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { Wrapper } from './styles';
 import { QuestionType } from '../../types/question';
 import OptionPrefix from '../OptionPrefix';
@@ -14,7 +16,7 @@ interface Props {
   index?: number;
 }
 
-function OptionItem({ id, optionId, type, value, isFocus, hasRemoveBtn, index }: Props) {
+const OptionItem = React.memo(function OptionItem({ id, optionId, type, value, isFocus, hasRemoveBtn, index }: Props) {
   return (
     <Wrapper>
       <OptionPrefix type={type} index={index} />
@@ -22,6 +24,6 @@ function OptionItem({ id, optionId, type, value, isFocus, hasRemoveBtn, index }:
       {hasRemoveBtn && isFocus && <RemoveOptionButton id={id} optionId={optionId} />}
     </Wrapper>
   );
-}
+});
 
 export default OptionItem;

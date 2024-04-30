@@ -1,3 +1,4 @@
+import React from 'react';
 import Divider from '@mui/material/Divider';
 import { MdDragIndicator } from 'react-icons/md';
 import { DraggableProvidedDragHandleProps } from 'react-beautiful-dnd';
@@ -26,7 +27,15 @@ interface Props {
   dragHandleProps: DraggableProvidedDragHandleProps | null | undefined;
 }
 
-function QuestionItem({ id, title, type, options, required, hasEtc, dragHandleProps }: Props) {
+const QuestionItem = React.memo(function QuestionItem({
+  id,
+  title,
+  type,
+  options,
+  required,
+  hasEtc,
+  dragHandleProps,
+}: Props) {
   const isFocus = useAppSelector((state) => selectIsFocus(state, id));
   const dispatch = useAppDispatch();
 
@@ -65,6 +74,6 @@ function QuestionItem({ id, title, type, options, required, hasEtc, dragHandlePr
       </div>
     </CardWrapper>
   );
-}
+});
 
 export default QuestionItem;

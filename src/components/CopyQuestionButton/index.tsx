@@ -1,3 +1,4 @@
+import React from 'react';
 import { PiCopySimple } from 'react-icons/pi';
 
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
@@ -7,7 +8,7 @@ interface Props {
   copiedId: number;
 }
 
-function CopyQuestionButton({ copiedId }: Props) {
+const CopyQuestionButton = React.memo(function CopyQuestionButton({ copiedId }: Props) {
   const questionIds = useAppSelector(selectQuestionIds);
   const dispatch = useAppDispatch();
 
@@ -25,6 +26,6 @@ function CopyQuestionButton({ copiedId }: Props) {
       <PiCopySimple fontSize={24} />
     </button>
   );
-}
+});
 
 export default CopyQuestionButton;

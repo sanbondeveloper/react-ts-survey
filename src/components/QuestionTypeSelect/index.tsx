@@ -1,4 +1,4 @@
-import { SyntheticEvent, useState } from 'react';
+import React, { SyntheticEvent, useState } from 'react';
 import { MdShortText } from 'react-icons/md';
 import { MdSubject } from 'react-icons/md';
 import { MdRadioButtonChecked } from 'react-icons/md';
@@ -24,7 +24,7 @@ interface Props {
   type: QuestionType['type'];
 }
 
-function QuestionTypeSelect({ id, type }: Props) {
+const QuestionTypeSelect = React.memo(function QuestionTypeSelect({ id, type }: Props) {
   const [anchorEl, setAnchorEl] = useState<null | (EventTarget & Element)>(null);
   const dispatch = useAppDispatch();
 
@@ -85,6 +85,6 @@ function QuestionTypeSelect({ id, type }: Props) {
       ))}
     </Select>
   );
-}
+});
 
 export default QuestionTypeSelect;
