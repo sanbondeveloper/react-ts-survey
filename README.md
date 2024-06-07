@@ -54,9 +54,14 @@
 
 - 질문의 포커스 여부를 나타내는 `selectIsFocus`를 `createSelector`함수를 활용해 메모이제이션하여 실제로 포커스 여부의 변경이 발생하는 `<QuestionItem />`만 리렌더링되도록 구현했습니다.
 
+## 설치 가이드
 
-
-### 요구사항
 - Node 18.17.1
 - NPM 9.6.7
 - React 18.2.0
+
+```
+npm install
+npm run dev
+```
+
