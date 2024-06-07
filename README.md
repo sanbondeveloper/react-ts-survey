@@ -33,12 +33,6 @@
 
 ![4](https://github.com/sanbondeveloper/react-ts-survey/assets/146537655/bc917f5e-6e2f-450c-a017-0ba5fe03452a)
 
-**설문지 내용 저장**
-
-브라우저를 닫고 다시 방문해도 작성한 설문지 내용이 저장됩니다.
-
-![5](https://github.com/sanbondeveloper/react-ts-survey/assets/146537655/16912c1c-1d27-4817-8975-82794668ba67)
-
 **미리 보기**
 
 제작한 설문지를 직접 사용해볼 수 있습니다.
