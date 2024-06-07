@@ -3,4 +3,4 @@
 
 - 개인 프로젝트
 - 개발 기간: 약 1주
-- 배포 주소: 
+- 배포 주소: https://peppy-genie-f4960b.netlify.app/
