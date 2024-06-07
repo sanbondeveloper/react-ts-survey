@@ -19,31 +19,31 @@
 
 객관식, 체크박스, 드롭다운 형식의 질문의 선택 옵션을 추가하고 삭제할 수 있습니다.
 
-![2](https://github.com/sanbondeveloper/react-ts-survey/assets/146537655/2e33c8c4-f245-4d33-9270-b16a20d9d44b)
+![2](https://github.com/sanbondeveloper/react-ts-survey/assets/146537655/0187db45-3295-487f-8ba4-c64d16855cda)
 
 **질문 포커스**
 
 현재 작업중인 질문을 포커스하는 기능을 제공합니다.
 
-![3](https://github.com/sanbondeveloper/react-ts-survey/assets/146537655/e0549a3c-c6ac-48d0-a809-90b7fe3bd52c)
+![3](https://github.com/sanbondeveloper/react-ts-survey/assets/146537655/518d090c-1745-4099-988d-6bac90c71e82)
 
 **드래그 앤 드롭**
 
 마우스 드래그 앤 드롭을 통해 질문 순서와 선택 옵션 순서를 변경할 수 있습니다.
 
-![4](https://github.com/sanbondeveloper/react-ts-survey/assets/146537655/34aafc68-b7d8-4e5b-8a24-234c149dc543)
+![4](https://github.com/sanbondeveloper/react-ts-survey/assets/146537655/bc917f5e-6e2f-450c-a017-0ba5fe03452a)
 
 **설문지 내용 저장**
 
 브라우저를 닫고 다시 방문해도 작성한 설문지 내용이 저장됩니다.
 
-![6](https://github.com/sanbondeveloper/react-ts-survey/assets/146537655/d7a8d080-7b49-4b69-8d79-7edc1e214d0a)
+![5](https://github.com/sanbondeveloper/react-ts-survey/assets/146537655/16912c1c-1d27-4817-8975-82794668ba67)
 
 **미리 보기**
 
 제작한 설문지를 직접 사용해볼 수 있습니다.
 
-![7](https://github.com/sanbondeveloper/react-ts-survey/assets/146537655/903f7ac6-66ae-414d-a9ed-cf745692ac40)
+![6](https://github.com/sanbondeveloper/react-ts-survey/assets/146537655/f45bda88-3718-4cfc-b260-9f237071c70d)
 
 
 ### 요구사항
