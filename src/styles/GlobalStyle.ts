@@ -1,4 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
+import BMYEONSUNGTTF from '../assets/fonts/BMYEONSUNG.ttf';
+import BMYEONSUNGWOFF from '../assets/fonts/BMYEONSUNG.woff';
+import BMYEONSUNGWOFF2 from '../assets/fonts/BMYEONSUNG.woff2';
 
 const GlobalStyle = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -54,9 +57,16 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  @font-face {
+    font-family: BMYEONSUNG;
+    src: local('BMYEONSUNG'), url(${BMYEONSUNGWOFF2}) format('woff2'), url(${BMYEONSUNGWOFF}) format('woff'), url(${BMYEONSUNGTTF}) format('truetype');
+    font-display: block;
+  }
+
   html {
     background-color: rgb(240, 235, 248);
     height: 100%;
+    font-family: BMYEONSUNG, sans-serif;
   }
 
   main {

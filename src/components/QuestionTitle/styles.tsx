@@ -6,6 +6,7 @@ export const InputQuestionTitle = styled(TextField)`
     align-items: center !important;
     padding-top: 15px;
     padding-bottom: 15px;
+    font-family: BMYEONSUNG, sans-serif;
   }
 
   .MuiInput-root::after {

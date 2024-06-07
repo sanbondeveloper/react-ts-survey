@@ -3,9 +3,14 @@ import TextField from '@mui/material/TextField';
 
 export const Container = styled.div`
   min-width: 580px;
+  width: 100%;
 `;
 
 export const InputValue = styled(TextField)<{ $isfocus: boolean }>`
+  .MuiInput-root {
+    font-family: BMYEONSUNG, sans-serif;
+  }
+
   .MuiInput-root:before {
     border-bottom: none;
   }

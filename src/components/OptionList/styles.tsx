@@ -17,7 +17,7 @@ export const Option = styled.li<{ $isDragging: boolean; $draggingOverWith: strin
     display: none;
     position: absolute;
     left: -15px;
-    top: 50%;
+    top: 55%;
     transform: translateY(-50%);
     font-size: 20px;
     z-index: 10;
