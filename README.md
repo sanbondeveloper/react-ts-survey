@@ -2,7 +2,6 @@
 
 # Online Survey Form
 
-- [Online Survey Form](#online-survey-form)
   * [프로젝트 소개](#-------)
     + [주요 기능](#-----)
     + [성능 최적화의 고민](#----------)
