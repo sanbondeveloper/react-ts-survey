@@ -3,11 +3,11 @@
 # Online Survey Form
 
 - [Online Survey Form](#online-survey-form)
-  * [프로젝트 소개](#-------)
-    + [주요 기능](#-----)
-    + [성능 최적화의 고민](#----------)
-  * [설치 가이드](#------)
-  * [기술 스택](#-----)
+  * [프로젝트 소개](#프로젝트_소개)
+    + [주요 기능](#주요_기능)
+    + [성능 최적화의 고민](#성능_최적화의_고민)
+  * [설치 가이드](#설치_가이드)
+  * [기술 스택](#기술_스택)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
