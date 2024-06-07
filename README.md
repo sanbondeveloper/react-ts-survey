@@ -65,3 +65,6 @@ npm run dev
 ```
 ## 기술 스택
 
+**환경**
+<img src="https://img.shields.io/badge/visualstudiocode-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white">
+
