@@ -13,7 +13,7 @@
 
 질문을 추가하여 질문의 제목을 입력할 수 있고 삭제할 수 있습니다.
 
-![질문 추가 및 삭제](https://github.com/sanbondeveloper/react-ts-survey/assets/146537655/7719957d-89db-4a73-8ab3-b7aee3e0652c)
+![질문 추가 및 삭제](https://github.com/sanbondeveloper/react-ts-survey/assets/146537655/de9e94de-6fb3-4594-b120-057dd206d54d)
 
 
 **질문 복사**
