@@ -13,7 +13,7 @@
 
 질문을 추가 및 삭제할 수 있고 복사 기능을 통해 기존의 질문을 재사용할 수 있습니다. 또한 추가된 질문의 형식을 변경할 수 있고 답변 필수 여부 지정할 수 있습니다.
 
-![1](https://github.com/sanbondeveloper/react-ts-survey/assets/146537655/8e4e67df-9a19-4297-b16c-922f086ba8a3)
+![1](https://github.com/sanbondeveloper/react-ts-survey/assets/146537655/f47dbd62-c210-48bf-86df-69f0e0c46274)
 
 **선택 옵션 추가, 삭제**
 
