@@ -23,7 +23,7 @@ function RadioOption({ questionId, options, hasEtc, value }: Props) {
   return (
     <RadioGroup value={value} onChange={handleChange}>
       {options.map(({ id, value }) => (
-        <FormControlLabel key={id} value={value} control={<Radio />} label={value} />
+        <FormControlLabel key={id} value={`${value}-${id}`} control={<Radio />} label={value} />
       ))}
       {hasEtc && <FormControlLabel key={Infinity} value={'기타'} control={<Radio />} label={'기타'} />}
     </RadioGroup>
