@@ -13,6 +13,8 @@
 
 질문을 추가하여 질문의 제목을 입력할 수 있고 삭제할 수 있습니다.
 
+https://github.com/sanbondeveloper/react-ts-survey/assets/146537655/11e70969-7d66-42bf-ad61-8094cc727b49
+
 
 **질문 복사**
 
