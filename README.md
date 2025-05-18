@@ -1,6 +1,6 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/feff7299-9c20-4a8a-af1a-0c4e69665ae5/deploy-status)](https://app.netlify.com/sites/peppy-genie-f4960b/deploys)
 
-# Online Survey Form
+# 온라인 설문 폼 제작 도구
 
   * [프로젝트 소개](#프로젝트-소개)
     + [주요 기능](#주요-기능)
@@ -54,19 +54,19 @@
 - `React.memo` 활용
   
   - 해당 프로젝트를 수행하면서 질문 리스트와 선택 옵션 리스트를 렌더링할 때 `map`을 통해 리스트 구조로 렌더링했습니다. 이러한 구조의 문제점은 하나의 아이템의 상태 변경이 부모 컴포넌트를 리렌더링해 모든 아이템들이 리렌더링될 수 있습니다. 이는 불필요한 렌더링입니다.
-  - 불필요한 렌더링을 방지하기 위해 Props가 변경되지 않았는 데 리렌더링될 가능성이 있는 컴포넌트를 `React.memo`를 통해 메모이제이션 했습니다.
+  - 특정 질문 및 선택 옵션 상태 변경 시, `React.memo` 활용해 리스트 내 실제로 변경된 항목만 리렌더링되도록 최적화하여 렌더링 성능을 개선했습니다.
   - 메모이제이션하는 과정에서 메모이제이션에도 캐시하기 위한 비용이 발생한다는 것을 알게되었습니다.
 
 **2. 애니메이션 최적화**
 
 - `useLayoutEffect` 활용
 
-  - 플로팅 버튼의 위치를 이동시킬 때 화면 깜빡임을 방지하기 위해 `useLayoutEffect`를 활용하여 레이아웃 단계에서 플로팅 버튼을 이동시켰습니다.
+  - 플로팅 버튼 위치 이동 시 발생하는 화면 깜빡임(Flickering)을 방지하기 위해 `useLayoutEffect`를 활용하여 브라우저의 페인팅 이전 단계에서 레이아웃을 동기적으로 조정, 사용자 경험을 개선했습니다.
   - `useLayoutEffect`는 페인트 전 단계에서 동기적으로 동작하기 때문에 성능 문제가 발생할 수 있어 주의해서 사용해야 된다는 것을 알게되었습니다.
 
 - `transform` 속성 활용
 
-  - 플로팅 버튼의 y축을 이동시킬 때 GPU가 관여할 수 있는 속성인 `transform`을 변경해 브라우저의 Reflow 단계를 생략하도록 구현했습니다.
+  - 플로팅 버튼의 Y축 이동 시, transform 속성을 활용하여 브라우저의 Reflow 단계를 생략하고 GPU 기반 Composite 단계에서 처리되도록 최적화했습니다.
 
 **3. 리덕스 selector 메모이제이션**
 
@@ -82,7 +82,8 @@
 
 ```
 npm install
-npm run dev
+npm run build
+npm run preview
 ```
 ## 기술 스택
 
